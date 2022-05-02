@@ -4,8 +4,10 @@
 
 #include "stdafx.h"
 #include "Student-achievement-management-MFC.h"
-
+#include "SelectView.h"
+#include "DisplayView.h"
 #include "MainFrm.h"
+#include "UserDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -17,6 +19,14 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	//ON_MESSAGE响应的是自定义消息
+	//产生NM_X消息，自动调用OnMyChange函数
+	ON_MESSAGE(NM_A, OnMyChange)
+	ON_MESSAGE(NM_B, OnMyChange)
+	ON_MESSAGE(NM_C, OnMyChange)
+	ON_MESSAGE(NM_D, OnMyChange)
+	ON_MESSAGE(NM_E, OnMyChange)
+
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -49,7 +59,9 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // 未能创建
 	}
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
-
+	//设置窗口的位置和大小:CWnd::MOveWindow
+	MoveWindow(0, 0, 800, 600);
+	CenterWindow();
 	return 0;
 }
 
@@ -80,3 +92,41 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 // CMainFrame 消息处理程序
 
+
+
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+
+	//return CFrameWnd::OnCreateClient(lpcs, pContext);
+	m_spliter.CreateStatic(this, 1, 2);//拆分成1行2列
+	//左侧和右侧具体显示类容
+	m_spliter.CreateView(0, 0, RUNTIME_CLASS(CSelectView), CSize(200, 500),pContext);
+	m_spliter.CreateView(0, 1, RUNTIME_CLASS(CDisplayView), CSize(450, 500), pContext);
+	return true;//自己拆分
+}
+
+LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
+{
+	CCreateContext   Context;
+	if (wParam == NM_A)
+	{
+		//MessageBox(TEXT("个人信息界面挂载"));
+		//界面挂载
+		Context.m_pNewViewClass = RUNTIME_CLASS(CUserDlg);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView *)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CUserDlg), CSize(600, 500), &Context);
+		CUserDlg *pNewView = (CUserDlg *)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+
+	}
+	else if (wParam == NM_B)
+	{
+		//MessageBox(TEXT("添加成绩界面挂载"));
+	}
+	return 0;
+}

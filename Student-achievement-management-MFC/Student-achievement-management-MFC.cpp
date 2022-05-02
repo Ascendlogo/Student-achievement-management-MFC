@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 #include "Student-achievement-management-MFC.h"
 #include "MainFrm.h"
-
+#include "LoginDlg.h"
 #include "Student-achievement-management-MFCDoc.h"
 #include "Student-achievement-management-MFCView.h"
 
@@ -68,6 +68,8 @@ BOOL CStudentachievementmanagementMFCApp::InitInstance()
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
+	CLoginDlg dlg;
+	dlg.DoModal();//以模态方式运行
 	CWinApp::InitInstance();
 
 

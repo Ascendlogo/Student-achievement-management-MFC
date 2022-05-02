@@ -39,6 +39,21 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="InfoFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Student-achievement-management-MFC.cpp">
@@ -56,6 +71,21 @@
     <ClCompile Include="Student-achievement-management-MFCView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="InfoFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Student-achievement-management-MFC.rc">
@@ -66,12 +96,16 @@
     <None Include="res\StudentachievementmanagementMFC.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Student-achievement-management-MFCDoc.ico">
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\Student-achievement-management-MFC.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\re.ico">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

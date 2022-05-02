@@ -44,7 +44,8 @@ BOOL CStudentachievementmanagementMFCDoc::OnNewDocument()
 
 	// TODO: 在此添加重新初始化代码
 	// (SDI 文档将重用该文档)
-
+	//设置窗口标题
+	SetTitle(TEXT("学生成绩管理系统"));
 	return TRUE;
 }
 

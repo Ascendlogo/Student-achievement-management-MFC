@@ -90,7 +90,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNNGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -189,16 +189,25 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DisplayView.h" />
+    <ClInclude Include="InfoFile.h" />
+    <ClInclude Include="LoginDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SelectView.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Student-achievement-management-MFC.h" />
     <ClInclude Include="Student-achievement-management-MFCDoc.h" />
     <ClInclude Include="Student-achievement-management-MFCView.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UserDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DisplayView.cpp" />
+    <ClCompile Include="InfoFile.cpp" />
+    <ClCompile Include="LoginDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="SelectView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -208,18 +217,26 @@
     <ClCompile Include="Student-achievement-management-MFC.cpp" />
     <ClCompile Include="Student-achievement-management-MFCDoc.cpp" />
     <ClCompile Include="Student-achievement-management-MFCView.cpp" />
+    <ClCompile Include="UserDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Student-achievement-management-MFC.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="res\StudentachievementmanagementMFC.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\re.ico" />
     <Image Include="res\Student-achievement-management-MFC.ico" />
     <Image Include="res\Student-achievement-management-MFCDoc.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Student-achievement-management-MFC.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
