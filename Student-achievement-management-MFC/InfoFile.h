@@ -12,8 +12,8 @@ public:
 	CInfoFile();
 	struct msg
 	{
-		char studentNumber[20];//学号
-		char studentName[20];//学生姓名
+		string studentNumber;//学号
+		string studentName;//学生姓名
 		int gradeChinese, gradeMath, gradeEnglish;//成绩
 	};
 	list<msg>ls;
@@ -27,7 +27,7 @@ public:
 	//写入文件
 	void WriteDocline();
 	//添加学生
-	void Addline(CString user, int num);
+	void Addline(CString &m_stuNUM, CString &m_stuNAME, int &m_gradeChinese, int &m_gradeMath, int &m_gradeEnglish);
 	~CInfoFile();
 };
 

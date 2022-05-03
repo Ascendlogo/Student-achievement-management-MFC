@@ -8,6 +8,8 @@
 #include "DisplayView.h"
 #include "MainFrm.h"
 #include "UserDlg.h"
+#include "AddDlg.h"
+#include "InfoDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -127,6 +129,28 @@ LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
 	else if (wParam == NM_B)
 	{
 		//MessageBox(TEXT("添加成绩界面挂载"));
+		Context.m_pNewViewClass = RUNTIME_CLASS(CAddDlg);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView *)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CAddDlg), CSize(600, 500), &Context);
+		CAddDlg *pNewView = (CAddDlg *)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_E)
+	{
+		//显示全部成绩界面挂载
+		Context.m_pNewViewClass = RUNTIME_CLASS(CInfoDlg);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView *)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CInfoDlg), CSize(600, 0), &Context);
+		CInfoDlg *pNewView = (CInfoDlg *)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
 	}
 	return 0;
 }
