@@ -190,6 +190,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddDlg.h" />
+    <ClInclude Include="ChangeDlg.h" />
+    <ClInclude Include="DeleteDlg.h" />
     <ClInclude Include="DisplayView.h" />
     <ClInclude Include="InfoDlg.h" />
     <ClInclude Include="InfoFile.h" />
@@ -206,6 +208,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddDlg.cpp" />
+    <ClCompile Include="ChangeDlg.cpp" />
+    <ClCompile Include="DeleteDlg.cpp" />
     <ClCompile Include="DisplayView.cpp" />
     <ClCompile Include="InfoDlg.cpp" />
     <ClCompile Include="InfoFile.cpp" />
@@ -234,6 +238,7 @@
     <Image Include="res\re.ico" />
     <Image Include="res\Student-achievement-management-MFC.ico" />
     <Image Include="res\Student-achievement-management-MFCDoc.ico" />
+    <Image Include="res\user.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

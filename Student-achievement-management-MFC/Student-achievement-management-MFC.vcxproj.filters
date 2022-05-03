@@ -60,6 +60,12 @@
     <ClInclude Include="InfoDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ChangeDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Student-achievement-management-MFC.cpp">
@@ -98,6 +104,12 @@
     <ClCompile Include="InfoDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ChangeDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Student-achievement-management-MFC.rc">
@@ -118,6 +130,9 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\re.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\user.ico">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

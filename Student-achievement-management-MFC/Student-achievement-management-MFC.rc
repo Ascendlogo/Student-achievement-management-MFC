@@ -75,6 +75,8 @@ IDR_StudentachievemTYPE ICON                    "res\\Student-achievement-manage
 
 IDI_ICON_RE             ICON                    "res\\re.ico"
 
+IDI_ICON_WIN            ICON                    "res\\user.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -83,33 +85,6 @@ IDI_ICON_RE             ICON                    "res\\re.ico"
 
 IDR_MAINFRAME MENU
 BEGIN
-    POPUP "文件(&F)"
-    BEGIN
-        MENUITEM "新建(&N)\tCtrl+N",              ID_FILE_NEW
-        MENUITEM "打开(&O)...\tCtrl+O",           ID_FILE_OPEN
-        MENUITEM "保存(&S)\tCtrl+S",              ID_FILE_SAVE
-        MENUITEM "另存为(&A)...",                  ID_FILE_SAVE_AS
-        MENUITEM SEPARATOR
-        MENUITEM "打印(&P)...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "打印预览(&V)",                    ID_FILE_PRINT_PREVIEW
-        MENUITEM "打印设置(&R)...",                 ID_FILE_PRINT_SETUP
-        MENUITEM SEPARATOR
-        MENUITEM "最近的文件",                       ID_FILE_MRU_FILE1, GRAYED
-        MENUITEM SEPARATOR
-        MENUITEM "退出(&X)",                      ID_APP_EXIT
-    END
-    POPUP "编辑(&E)"
-    BEGIN
-        MENUITEM "撤消(&U)\tCtrl+Z",              ID_EDIT_UNDO
-        MENUITEM SEPARATOR
-        MENUITEM "剪切(&T)\tCtrl+X",              ID_EDIT_CUT
-        MENUITEM "复制(&C)\tCtrl+C",              ID_EDIT_COPY
-        MENUITEM "粘贴(&P)\tCtrl+V",              ID_EDIT_PASTE
-    END
-    POPUP "视图(&V)"
-    BEGIN
-        MENUITEM "状态栏(&S)",                     ID_VIEW_STATUS_BAR
-    END
     POPUP "帮助(&H)"
     BEGIN
         MENUITEM "关于 Student-achievement-management-MFC(&A)...", ID_APP_ABOUT
@@ -200,7 +175,7 @@ DIALOG_ADD DIALOGEX 0, 0, 311, 259
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "添加",IDOK,118,212,83,18
+    DEFPUSHBUTTON   "添加",IDOK,118,205,83,25
     LTEXT           "学号：",IDC_STATIC,86,26,27,8
     LTEXT           "姓名：",IDC_STATIC,86,54,27,8
     LTEXT           "语文成绩：",IDC_STATIC,69,85,44,8
@@ -220,13 +195,45 @@ BEGIN
     CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,21,6,262,236
 END
 
-IDD_DIALOG1 DIALOGEX 0, 0, 310, 177
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dialog"
+DIALOG_CHANGE DIALOGEX 0, 0, 311, 260
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,199,156,50,14
-    PUSHBUTTON      "取消",IDCANCEL,253,156,50,14
+    DEFPUSHBUTTON   "修改",IDOK,114,191,78,30
+    LTEXT           "学号：",IDC_STATIC,78,30,27,8
+    LTEXT           "姓名：",IDC_STATIC,78,59,27,8
+    LTEXT           "语文成绩：",IDC_STATIC,62,88,44,8
+    LTEXT           "数学成绩：",IDC_STATIC,61,107,44,8
+    LTEXT           "英语成绩：",IDC_STATIC,61,125,44,8
+    EDITTEXT        IDC_EDIT1,131,29,48,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,131,55,49,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,131,83,49,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,131,105,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,131,124,49,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,210,29,48,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,210,55,49,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,210,83,49,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,210,104,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT10,210,124,49,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "填入",IDC_BUTTON1,134,15,42,12
+END
+
+DIALOG_Delete DIALOGEX 0, 0, 310, 271
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "删除",IDOK,111,196,83,29
+    LTEXT           "学号：",IDC_STATIC,106,25,27,8
+    LTEXT           "姓名：",IDC_STATIC,106,52,27,8
+    LTEXT           "语文成绩：",IDC_STATIC,89,80,44,8
+    LTEXT           "数学成绩：",IDC_STATIC,89,107,44,8
+    LTEXT           "英语成绩：",IDC_STATIC,89,131,44,8
+    EDITTEXT        IDC_EDIT1,168,50,54,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,169,79,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,168,23,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,168,105,55,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,169,130,55,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "填入",IDC_BUTTON1,237,23,40,13
 END
 
 
@@ -326,12 +333,20 @@ BEGIN
         BOTTOMMARGIN, 242
     END
 
-    IDD_DIALOG1, DIALOG
+    DIALOG_CHANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 257
+    END
+
+    DIALOG_Delete, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 303
         TOPMARGIN, 7
-        BOTTOMMARGIN, 170
+        BOTTOMMARGIN, 245
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -367,7 +382,12 @@ BEGIN
     0
 END
 
-IDD_DIALOG1 AFX_DIALOG_LAYOUT
+DIALOG_CHANGE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+DIALOG_Delete AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

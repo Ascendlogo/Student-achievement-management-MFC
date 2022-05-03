@@ -67,7 +67,7 @@ void CInfoDlg::OnInitialUpdate()
 	}
 
 	CInfoFile file;
-	file.ReadDocline(); //读取商品信息
+	file.ReadDocline(); //读取学生信息
 
 	//添加数据
 	int i = 0;

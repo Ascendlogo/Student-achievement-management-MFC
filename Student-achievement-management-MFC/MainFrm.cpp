@@ -10,6 +10,8 @@
 #include "UserDlg.h"
 #include "AddDlg.h"
 #include "InfoDlg.h"
+#include "ChangeDlg.h"
+#include "DeleteDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -60,12 +62,15 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		TRACE0("未能创建状态栏\n");
 		return -1;      // 未能创建
 	}
+	//设置图标，IDI_ICON_WIN为图标资源ID，此为WINAPI函数
+	SetClassLong(m_hWnd, GCL_HICON, (LONG)AfxGetApp()->LoadIconW(IDI_ICON_WIN));
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
 	//设置窗口的位置和大小:CWnd::MOveWindow
 	MoveWindow(0, 0, 800, 600);
 	CenterWindow();
 	return 0;
 }
+
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
@@ -148,6 +153,32 @@ LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
 		m_spliter.DeleteView(0, 1);
 		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CInfoDlg), CSize(600, 0), &Context);
 		CInfoDlg *pNewView = (CInfoDlg *)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_C)
+	{
+		//修改学生界面挂载
+		Context.m_pNewViewClass = RUNTIME_CLASS(CChangeDlg);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView *)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CChangeDlg), CSize(600, 0), &Context);
+		CChangeDlg *pNewView = (CChangeDlg *)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	else if (wParam == NM_D)
+	{
+		//删除学生界面挂载
+		Context.m_pNewViewClass = RUNTIME_CLASS(CDeleteDlg);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView *)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CDeleteDlg), CSize(600, 0), &Context);
+		CDeleteDlg *pNewView = (CDeleteDlg *)m_spliter.GetPane(0, 1);
 		m_spliter.RecalcLayout();
 		pNewView->OnInitialUpdate();
 		m_spliter.SetActivePane(0, 1);
