@@ -1,4 +1,4 @@
-// LoginDlg.cpp : ÊµÏÖÎÄ¼þ
+// LoginDlg.cpp : å®žçŽ°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -8,13 +8,13 @@
 #include "InfoFile.h"
 
 
-// CLoginDlg ¶Ô»°¿ò
+// CLoginDlg å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CLoginDlg, CDialogEx)
 
 CLoginDlg::CLoginDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(DIALOG_LOGIN, pParent)
-	, m_user(_T("ÇØÑÇ¶«"))
+	, m_user(_T("æŽå››"))
 	, m_pwd(_T("123456"))
 {
 
@@ -40,19 +40,19 @@ BEGIN_MESSAGE_MAP(CLoginDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CLoginDlg ÏûÏ¢´¦Àí³ÌÐò
+// CLoginDlg æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 
 BOOL CLoginDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// TODO:  ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯
-	m_user = TEXT("ÇØÑÇ¶«");//ÓÃ»§Ãû
-	m_pwd = TEXT("123456");//ÃÜÂë
+	// TODO:  åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–
+	m_user = TEXT("ç§¦äºšä¸œ");//ç”¨æˆ·å
+	m_pwd = TEXT("123456");//å¯†ç 
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
-				  // Òì³£: OCX ÊôÐÔÒ³Ó¦·µ»Ø FALSE
+				  // å¼‚å¸¸: OCX å±žæ€§é¡µåº”è¿”å›ž FALSE
 }
 
 
@@ -60,15 +60,15 @@ BOOL CLoginDlg::OnInitDialog()
 
 void CLoginDlg::OnBnClickedButton1()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼þÍ¨Öª´¦Àí³ÌÐò´úÂë
-	UpdateData(TRUE);//¸üÐÂ¿Ø¼þÊý¾Ýµ½¶ÔÓ¦µÄ±äÁ¿
+	// TODO: åœ¨æ­¤æ·»åŠ æŽ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
+	UpdateData(TRUE);//æ›´æ–°æŽ§ä»¶æ•°æ®åˆ°å¯¹åº”çš„å˜é‡
 	if (m_user.IsEmpty())
 	{
-		MessageBox(TEXT("ÓÃ»§ÃûÊäÈë²»ÄÜÎª¿Õ"));
+		MessageBox(TEXT("ç”¨æˆ·åè¾“å…¥ä¸èƒ½ä¸ºç©º"));
 	}
 	else if(m_pwd.IsEmpty())
 	{
-		MessageBox(TEXT("ÃÜÂëÊäÈë²»ÄÜÎª¿Õ"));
+		MessageBox(TEXT("å¯†ç è¾“å…¥ä¸èƒ½ä¸ºç©º"));
 	}
 	else
 	{
@@ -79,8 +79,8 @@ void CLoginDlg::OnBnClickedButton1()
 		{
 			if (m_pwd != pwd)
 			{
-				MessageBox(TEXT("ÃÜÂë´íÎó"));
-				m_user.Empty();//Çå¿Õ
+				MessageBox(TEXT("å¯†ç é”™è¯¯"));
+				m_user.Empty();//æ¸…ç©º
 				m_pwd.Empty();
 			}
 			else
@@ -90,8 +90,8 @@ void CLoginDlg::OnBnClickedButton1()
 		}
 		else
 		{
-			MessageBox(TEXT("ÇëÊäÈëÕýÈ·µÄÓÃ»§Ãû"));
-			m_user.Empty();//Çå¿Õ
+			MessageBox(TEXT("è¯·è¾“å…¥æ­£ç¡®çš„ç”¨æˆ·å"));
+			m_user.Empty();//æ¸…ç©º
 			m_pwd.Empty();
 		}
 	}
@@ -101,14 +101,14 @@ void CLoginDlg::OnBnClickedButton1()
 
 void CLoginDlg::OnBnClickedButton2()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼þÍ¨Öª´¦Àí³ÌÐò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æŽ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	exit(0);
 }
 
 
 void CLoginDlg::OnClose()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌÐò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 	exit(0);
 	CDialogEx::OnClose();
 }
@@ -116,7 +116,7 @@ void CLoginDlg::OnClose()
 
 void CLoginDlg::OnOK()
 {
-	// TODO: ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
+	// TODO: åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
 
 	//CDialogEx::OnOK();
 	CLoginDlg::OnBnClickedButton1();
@@ -125,10 +125,10 @@ void CLoginDlg::OnOK()
 
 void CLoginDlg::OnEnChangePwdEdit()
 {
-	// TODO:  Èç¹û¸Ã¿Ø¼þÊÇ RICHEDIT ¿Ø¼þ£¬Ëü½«²»
-	// ·¢ËÍ´ËÍ¨Öª£¬³ý·ÇÖØÐ´ CDialogEx::OnInitDialog()
-	// º¯Êý²¢µ÷ÓÃ CRichEditCtrl().SetEventMask()£¬
-	// Í¬Ê±½« ENM_CHANGE ±êÖ¾¡°»ò¡±ÔËËãµ½ÑÚÂëÖÐ¡£
+	// TODO:  å¦‚æžœè¯¥æŽ§ä»¶æ˜¯ RICHEDIT æŽ§ä»¶ï¼Œå®ƒå°†ä¸
+	// å‘é€æ­¤é€šçŸ¥ï¼Œé™¤éžé‡å†™ CDialogEx::OnInitDialog()
+	// å‡½æ•°å¹¶è°ƒç”¨ CRichEditCtrl().SetEventMask()ï¼Œ
+	// åŒæ—¶å°† ENM_CHANGE æ ‡å¿—â€œæˆ–â€è¿ç®—åˆ°æŽ©ç ä¸­ã€‚
 
-	// TODO:  ÔÚ´ËÌí¼Ó¿Ø¼þÍ¨Öª´¦Àí³ÌÐò´úÂë
+	// TODO:  åœ¨æ­¤æ·»åŠ æŽ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 }
